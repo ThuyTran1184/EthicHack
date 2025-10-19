@@ -1,0 +1,349 @@
+/* Quy tắc cơ bản cho trang */
+.prose {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Card view hiệu ứng */
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Căn giữa hình ảnh */
+article img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5rem;
+}
+
+/* ===== CĂNG GIỮA LAYOUT CHỈ CHO BLOG ===== */
+
+/* Reset lại container mặc định của profile */
+.profile-page .container {
+  max-width: 1280px !important;
+}
+
+/* Chỉ áp dụng cho trang BLOG - dùng selector cụ thể hơn */
+main:has(> section) .container,
+main:has(> header) .container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Căn giữa grid/list layout của blog */
+main section.space-y-12:not(.profile-page *),
+main section[class*="space-y"]:not(.profile-page *),
+main div[class*="grid"]:not(.profile-page *) {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Căn giữa các card trong blog list - loại trừ profile */
+main .grid:not(.profile-page .grid) {
+  display: grid;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card view cho blog posts */
+main article[class*="rounded"]:not(.profile-page *),
+main .article-item,
+main a[class*="block"] article:not(.profile-page *) {
+  max-width: 380px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Căn giữa nội dung chi tiết bài viết */
+main article.prose:not(.profile-page *),
+main .prose.lg\:prose-xl:not(.profile-page *) {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header của trang blog */
+main header.space-y-6:not(.profile-page *),
+main .page-heading {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+}
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;  /* nằm dưới mọi thứ */
+  background: #0d1117; /* hoặc gradient tuỳ bạn */
+}
+
+.container {
+  position: relative;
+  z-index: 10; /* nội dung nổi lên trên */
+}
+
+/* ===== PROFILE PAGE STYLES ===== */
+.profile-page {
+  font-family: var(--font-base);
+}
+
+/* Đảm bảo container của profile KHÔNG bị center */
+.profile-page .container {
+  max-width: none !important;
+}
+
+.profile-page .grid {
+  justify-items: stretch !important;
+}
+/* ===== BLOG POST NAVIGATION ===== */
+/* Căn giữa phần chuyển tiếp bài viết */
+main nav:has(a[href*="/blog/"]),
+main .post-navigation,
+main nav.flex.justify-between {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+/* Đảm bảo các link được căn đều */
+main nav.flex.justify-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Style cho từng link */
+main nav a[class*="flex"] {
+  flex: 1;
+  max-width: 45%;
+}
+
+/* Căn trái cho link previous */
+main nav a[class*="flex"]:first-child {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Căn phải cho link next */
+main nav a[class*="flex"]:last-child {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  main nav.flex.justify-between {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  main nav a[class*="flex"] {
+    max-width: 100%;
+  }
+}
+/* Quy tắc màu chữ cho GIAO DIỆN SÁNG */
+html:not(.dark) .profile-page {
+  color: #000000;
+}
+
+html:not(.dark) .profile-page h1,
+html:not(.dark) .profile-page h2,
+html:not(.dark) .profile-page h3,
+html:not(.dark) .profile-page h4,
+html:not(.dark) .profile-page h5,
+html:not(.dark) .profile-page h6,
+html:not(.dark) .profile-page p,
+html:not(.dark) .profile-page li,
+html:not(.dark) .profile-page span,
+html:not(.dark) .profile-page div {
+  color: #000000;
+}
+
+/* Ngoại lệ cho card có background màu trong GIAO DIỆN SÁNG */
+html:not(.dark) .profile-page .bg-primary-600,
+html:not(.dark) .profile-page .bg-primary-700 {
+  color: #ffffff;
+}
+
+html:not(.dark) .profile-page .bg-primary-600 h2,
+html:not(.dark) .profile-page .bg-primary-700 h2,
+html:not(.dark) .profile-page .bg-primary-600 p,
+html:not(.dark) .profile-page .bg-primary-700 p,
+html:not(.dark) .profile-page .bg-primary-600 span,
+html:not(.dark) .profile-page .bg-primary-700 span,
+html:not(.dark) .profile-page .bg-primary-600 a,
+html:not(.dark) .profile-page .bg-primary-700 a {
+  color: #ffffff;
+}
+
+/* Quy tắc màu chữ cho GIAO DIỆN TỐI */
+html.dark .profile-page {
+  color: #ffffff;
+}
+
+html.dark .profile-page h1,
+html.dark .profile-page h2,
+html.dark .profile-page h3,
+html.dark .profile-page h4,
+html.dark .profile-page h5,
+html.dark .profile-page h6,
+html.dark .profile-page p,
+html.dark .profile-page li,
+html.dark .profile-page span,
+html.dark .profile-page div {
+  color: #ffffff;
+}
+
+/* Sửa trường hợp đặc biệt cho một số class */
+html:not(.dark) .profile-page .text-neutral-700,
+html:not(.dark) .profile-page .text-neutral-600,
+html:not(.dark) .profile-page .text-neutral-500,
+html:not(.dark) .profile-page .text-gray-600,
+html:not(.dark) .profile-page .text-black {
+  color: #000000 !important;
+}
+
+html.dark .profile-page .text-neutral-300,
+html.dark .profile-page .text-neutral-400,
+html.dark .profile-page .text-primary-400 {
+  color: #ffffff !important;
+}
+
+/* Hiệu ứng animation cho skill bar */
+@keyframes skillBarFill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.animate-skill-bar {
+  animation: skillBarFill 1.2s ease-out forwards;
+}
+
+/* Hiệu ứng animation cho văn bản */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-text {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animated-text-delay {
+  animation: fadeIn 0.8s ease-out 0.3s both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-page .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Điều chỉnh blog cho mobile */
+  main .grid:not(.profile-page .grid) {
+    grid-template-columns: 1fr;
+  }
+
+  main article.prose:not(.profile-page *) {
+    padding: 1rem;
+  }
+}
+
+/* Blog card animations */
+.article-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Readability fix: force text colors inside cards */
+
+/* Purple cards (Skills, Education, Contact) -> always white text/icons */
+.profile-page .bg-primary-600,
+.profile-page .bg-primary-700 {
+  color: #ffffff !important;
+}
+.profile-page .bg-primary-600 *,
+.profile-page .bg-primary-700 * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Light cards -> black in light mode, white in dark mode */
+html:not(.dark) .profile-page .bg-white,
+html:not(.dark) .profile-page .bg-neutral-50,
+html:not(.dark) .profile-page .bg-neutral-100,
+html:not(.dark) .profile-page .bg-neutral-200 {
+  color: #000000 !important;
+}
+html.dark .profile-page .bg-neutral-800,
+html.dark .profile-page .bg-neutral-900 {
+  color: #ffffff !important;
+}
+
+html:not(.dark) .profile-page .bg-white *,
+html:not(.dark) .profile-page .bg-neutral-50 *,
+html:not(.dark) .profile-page .bg-neutral-100 *,
+html:not(.dark) .profile-page .bg-neutral-200 * {
+  color: #000000 !important;
+}
+html.dark .profile-page .bg-neutral-800 *,
+html.dark .profile-page .bg-neutral-900 * {
+  color: #ffffff !important;
+}
+
+/* Code block box kiểu VS Code */
+.prose pre {
+  background: #1e1e1e;              /* VS Code Dark */
+  border: 1px solid rgba(88,166,255,0.2);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  overflow: auto;
+}
+html:not(.dark) .prose pre {
+  background: #ffffff;              /* khi dùng style: "vs" (light) */
+  border-color: rgba(9,105,218,0.25);
+}
+
+.prose code {                         /* inline code */
+  background: rgba(56,139,253,0.08);
+  border: 1px solid rgba(56,139,253,0.15);
+  border-radius: 6px;
+  padding: 0.1rem 0.35rem;
+}

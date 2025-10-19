@@ -1,0 +1,78 @@
+baseURL: "https://thuytran1184.github.io/EthicHack/"
+languageCode: "vn-vi"
+title: "EthicHack"
+theme: "blowfish"
+
+enableRobotsTXT: true
+canonifyURLs: true
+
+pagination:
+  pagerSize: 12
+
+
+
+menu:
+  main:
+    - identifier: profile
+      name: "Profile"
+      url: "/"
+      weight: 1
+    - identifier: blog
+      name: "Blog"
+      url: "/blog/"
+      weight: 2
+
+params:
+  author:
+    name: "Trần Thanh Thùy"
+    headline: "Sinh viên CNTT - An ninh mạng"
+    links:
+      - github: "https://github.com/ThuyTran1184"
+      - email: "mailto:meirutran1184@gmail.com"
+
+  article:
+    showHero: true
+    heroStyle: "background"
+
+  list:
+    showHero: true
+    showThumbnails: true
+    heroStyle: "background"
+    cardView: true
+    layoutBackgroundBlur: true
+
+  layout:
+    home: profile
+    list: card
+    
+
+  search:
+    enabled: false
+
+  assets:
+    customCSS:
+      - "css/custom.css"
+    customJS:
+      - "js/particles.min.js"
+      - "js/custom-particles.js"
+
+  defaultTheme: "dark"
+  colorScheme: "Ocean"
+  dateFormat: "02/01/2006"
+
+  showReadingTime: true
+  showComments: false
+  showTableOfContents: true
+  animation: true
+
+taxonomies:
+  category: categories
+  tag: tags
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    style: "dracula"   # hoặc "vs" nếu bạn muốn tông sáng
+    lineNos: false
+    noClasses: true    # inline style để chắc chắn màu hiển thị
