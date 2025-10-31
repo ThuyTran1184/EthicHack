@@ -13,6 +13,10 @@ pagination:
 
 menu:
   main:
+    - identifier: home
+      name: "Home"
+      url: "/"
+      weight: 0
     - identifier: profile
       name: "Profile"
       url: "/"
