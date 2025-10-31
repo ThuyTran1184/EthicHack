@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Profile"
 description: "Blog cá nhân"
-layout: "home"
+layout: "profile"
 ---
